@@ -3,6 +3,7 @@ class Calculator {
     this.previousOperandTextElement = previousOperandTextElement;
     this.currentOperandTextElement = currentOperandTextElement;
     this.clearAll();
+    this.updateDisplay();
   }
 
   clearAll() {
