@@ -35,6 +35,11 @@ class Calculator {
     this.previousOperand = this.currentOperand;
     this.currentOperand = '';
   }
+  
+  chooseInversionOperation() {
+    if (this.currentOperand === "") return;
+    this.currentOperand = parseFloat(this.currentOperand * -1).toString();
+  }
 
   compute() {
     let computation;
@@ -101,6 +106,7 @@ const equalsButton = document.querySelector('[data-equals]')
 const clearEntryButton = document.querySelector("[data-clear-entry]");
 const clearAllButton = document.querySelector("[data-clear-all]");
 const deleteButton = document.querySelector("[data-delete]");
+const sinalInversorButton = document.querySelector("[data-inversor]");
 const previousOperandTextElement = document.querySelector('[data-previous-operand]')
 const currentOperandTextElement = document.querySelector('[data-current-operand]')
 
@@ -139,6 +145,11 @@ deleteButton.addEventListener("click", (button) => {
   calculator.delete();
   calculator.updateDisplay();
 })
+
+sinalInversorButton.addEventListener("click", (button) => {
+  calculator.chooseInversionOperation();
+  calculator.updateDisplay();
+});
 
 document.addEventListener('keydown', function (event) {
   let patternForNumbers = /[0-9]/g;
